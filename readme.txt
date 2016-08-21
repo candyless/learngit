@@ -1,2 +1,2 @@
 This my first git test!
-first change have done!
+first change have done! gnu
