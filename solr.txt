@@ -1,0 +1,11 @@
+Solr的启动过程主要包括：
+ 
+1. 获取SolrHome：分别先后通过JNDI，System property，default directory三种方式尝试获取
+2. 实例化启动过程中使用的类加载器SolrResourceLoader
+3. 加载solrhome下的solr.xml文件，封装为ConfigSolr
+4. 实例化一个CoreContainer,通过CoreContainer来加载cores
+5. 遍历SolrHome，当寻找到含有core.properties的文件夹，则作为一个core
+6. 多线程加载cores
+7. 加载每个core时先加载solrconfig.xml封装为SolrConfig
+8. 再加载schema.xml封装为IndexSchema
+9. 最后实例化SolrCore
