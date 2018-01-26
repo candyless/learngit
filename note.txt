@@ -1,0 +1,175 @@
+﻿
+./bin/shutdown.sh 
+ps - ef | grep tomcat   (ps -ef 显示所有进程 grep进行筛选)
+rm -r
+windows  netstat -ano 查看端口
+mvn install -Dmaven.test.skip=true
+
+vi 编辑  a 插入 esc 退出编辑模式   :wq 保存
+./bin/start.sh  启动脚本
+tab键自动补全
+telnet
+
+
+linux下查看tomcat连接数  netstat -na | grep ESTAB | grep 8080 | wc -l
+
+linux资源查看  top    1   q（退出）
+
+跳过测试： mvn clean install -Dmaven.test.skip=true  
+自动上传：mvn deploy -e -Dmaven.test.skip=true
+
+
+
+
+top -H -p pid  线程数
+
+
+    Connect(SelectionKey.OP_CONNECT):一个channel成功连接到另一个服务器——“连接就绪”
+    Accept(SelectionKey.OP_ACCEPT):一个ServerSocketchannel准备好接收新进入的连接——“接收就绪”
+    Read(SelectionKey.OP_READ):一个通道的可读数据已准备好——“读就绪”
+    Write(SelectionKey.OP_WRITE):一个通道的可写数据已准备好——“写就绪”
+	
+	
+-----------------------------------------mybatis----------------------------------------------------------------------------------
+mybatis插件自动生成mapper、entity、Sql映射文件：mybatis-generator:generate
+   generatorConfig.xml   maven插件：<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>${mybatis.generator.version}</version>
+				<configuration>
+					<configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationFile>
+					<overwrite>true</overwrite>
+					<verbose>true</verbose>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>${mysql.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>tk.mybatis</groupId>
+						<artifactId>mapper</artifactId>
+						<version>${mapper.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+
+-X mybatis-generator:generate -Dmybatis.generator.overwrite=true
+参数映射-》sql解析-》sql执行-》结果集映射   http://www.jianshu.com/p/ec40a82cae28
+
+
+
+-----------------------------------------mybatis----------------------------------------------------------------------------------
+
+
+-----------------------------------------zookeeper----------------------------------------------------------------------------------
+建立节点   create /zk  hello
+
+获得节点  get /zk 
+
+设置节点 set /zk hello2
+
+建立子节点  set /zk/subzk hello3
+
+输出节点目录 ls /zk
+
+删除节点  delete /zk等等
+
+5，zookeeper的四字命令
+
+ZooKeeper 四字命令
+	
+
+功能描述
+
+conf
+	
+
+输出相关服务配置的详细信息。
+
+cons
+	
+
+列出所有连接到服务器的客户端的完全的连接 / 会话的详细信息。包括“接受 / 发送”的包数量、会话 id 、操作延迟、最后的操作执行等等信息。
+
+dump
+	
+
+列出未经处理的会话和临时节点。
+
+envi
+	
+
+输出关于服务环境的详细信息（区别于 conf 命令）。
+
+reqs
+	
+
+列出未经处理的请求
+
+ruok
+	
+
+测试服务是否处于正确状态。如果确实如此，那么服务返回“imok ”，否则不做任何相应。
+
+stat
+	
+
+输出关于性能和连接的客户端的列表。
+
+wchs
+	
+
+列出服务器 watch 的详细信息。
+
+wchc
+	
+
+通过 session 列出服务器 watch 的详细信息，它的输出是一个与watch 相关的会话的列表。
+
+wchp
+	
+
+通过路径列出服务器 watch 的详细信息。它输出一个与 session相关的路径。
+
+-----------------------------------------zookeeper----------------------------------------------------------------------------------
+
+-----------------------------------------jvm----------------------------------------------------------------------------------
+
+jstat
+option   可以从下面参数中选择
+
+    -class                 显示ClassLoad的相关信息；
+    -compiler           显示JIT编译的相关信息；
+    -gc                     显示和gc相关的堆信息；
+    -gccapacity 　　  显示各个代的容量以及使用情况；
+    -gccause             显示垃圾回收的相关信息（通-gcutil）,同时显示最后一次或当前正在发生的垃圾回收的诱因；
+    -gcnew               显示新生代信息；
+    -gcnewcapacity  显示新生代大小和使用情况；
+    -gcold                 显示老年代和永久代的信息；
+    -gcoldcapacity    显示老年代的大小；
+    -gcpermcapacity 显示永久代的大小；
+    -gcutil　　           显示垃圾收集信息；   
+    -printcompilation输出JIT编译的方法信息；
+
+
+
+
+
+jstat -gcutil pid
+S0  — Heap上的 Survivor space 0 区已使用空间的百分比
+S1  — Heap上的 Survivor space 1 区已使用空间的百分比
+E   — Heap上的 Eden space 区已使用空间的百分比
+O   — Heap上的 Old space 区已使用空间的百分比
+P   — Perm space 区已使用空间的百分比
+YGC — 从应用程序启动到采样时发生 Young GC 的次数
+YGCT– 从应用程序启动到采样时 Young GC 所用的时间(单位秒)
+FGC — 从应用程序启动到采样时发生 Full GC 的次数
+FGCT– 从应用程序启动到采样时 Full GC 所用的时间(单位秒)
+GCT — 从应用程序启动到采样时用于垃圾回收的总时间(单位秒)
+
+-----------------------------------------jvm----------------------------------------------------------------------------------
+
+
+
