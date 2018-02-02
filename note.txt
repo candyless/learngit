@@ -1,27 +1,25 @@
-﻿
-./bin/shutdown.sh 
+﻿-----------------------------------------linux----------------------------------------------------------------------------------
 ps - ef | grep tomcat   (ps -ef 显示所有进程 grep进行筛选)
+netstat -tunlp | grep 8000 查看端口占用情况
+netstat -na | grep ESTAB | grep 8080 | wc -l linux下查看tomcat连接数
 rm -r
 windows  netstat -ano 查看端口
-mvn install -Dmaven.test.skip=true
+
 
 vi 编辑  a 插入 esc 退出编辑模式   :wq 保存
 ./bin/start.sh  启动脚本
+./bin/shutdown.sh 
 tab键自动补全
 telnet
 
 
-linux下查看tomcat连接数  netstat -na | grep ESTAB | grep 8080 | wc -l
-
-linux资源查看  top    1   q（退出）
+top    1(详情)   q（退出）linux资源查看
+top -H -p pid  线程数
 
 跳过测试： mvn clean install -Dmaven.test.skip=true  
 自动上传：mvn deploy -e -Dmaven.test.skip=true
-
-
-
-
-top -H -p pid  线程数
+mvn install -Dmaven.test.skip=true
+-----------------------------------------linux----------------------------------------------------------------------------------
 
 
     Connect(SelectionKey.OP_CONNECT):一个channel成功连接到另一个服务器——“连接就绪”
@@ -57,9 +55,6 @@ mybatis插件自动生成mapper、entity、Sql映射文件：mybatis-generator:g
 
 -X mybatis-generator:generate -Dmybatis.generator.overwrite=true
 参数映射-》sql解析-》sql执行-》结果集映射   http://www.jianshu.com/p/ec40a82cae28
-
-
-
 -----------------------------------------mybatis----------------------------------------------------------------------------------
 
 
@@ -132,11 +127,9 @@ wchp
 	
 
 通过路径列出服务器 watch 的详细信息。它输出一个与 session相关的路径。
-
 -----------------------------------------zookeeper----------------------------------------------------------------------------------
 
 -----------------------------------------jvm----------------------------------------------------------------------------------
-
 jstat
 option   可以从下面参数中选择
 
@@ -168,7 +161,6 @@ YGCT– 从应用程序启动到采样时 Young GC 所用的时间(单位秒)
 FGC — 从应用程序启动到采样时发生 Full GC 的次数
 FGCT– 从应用程序启动到采样时 Full GC 所用的时间(单位秒)
 GCT — 从应用程序启动到采样时用于垃圾回收的总时间(单位秒)
-
 -----------------------------------------jvm----------------------------------------------------------------------------------
 s
 
