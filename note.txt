@@ -118,6 +118,12 @@ telnet
 top    1(详情)   q（退出）linux资源查看
 top -H -p pid  线程数
 
+查看linux版本  getconf LONG_BIT
+jdk安装：
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-i586.
+
+w who whami last lastlog
+
 跳过测试： mvn clean install -Dmaven.test.skip=true  
 自动上传：mvn deploy -e -Dmaven.test.skip=true
 mvn install -Dmaven.test.skip=true
@@ -250,4 +256,28 @@ Solr的启动过程主要包括：
 8. 再加载schema.xml封装为IndexSchema
 9. 最后实例化SolrCore
 -----------------------------------------solr----------------------------------------------------------------------------------
+
+-----------------------------------------rabbitmq----------------------------------------------------------------------------------
+由于rabbitMq需要erlang语言的支持，在安装rabbitMq之前需要安装erlang，执行命令：
+
+sudo apt-get install erlang-nox
+
+ 安装rabbitMq命令：
+
+2.$ sudo apt-get update
+3.$ sudo apt-get install rabbitmq-server
+
+启动、停止、重启、状态rabbitMq命令：
+
+启动：sudo rabbitmq-server start
+关闭： sudo rabbitmq-server stop
+重启： sudo rabbitmq-server restart
+查看状态：sudo rabbitmqctl status
+
+
+rabbtmqctl add_user 
+rabbitmqctl list_vhost
+
+-----------------------------------------rabbitmq----------------------------------------------------------------------------------
+
 
