@@ -8,23 +8,14 @@ linux环境变量种类：1、永久：需要修改配置文件，变量永久�
     查看变量：1、echo $path 
 	          2、env
 	常用的环境变量
-
 　　PATH 决定了shell将到哪些目录中寻找命令或程序
-
 　　HOME 当前用户主目录
-
 　　HISTSIZE　历史记录数
-
 　　LOGNAME 当前用户的登录名
-
 　　HOSTNAME　指主机的名称
-
 　　SHELL 　　当前用户Shell类型
-
 　　LANGUGE 　语言相关的环境变量，多语言可以修改此环境变量
-
 　　MAIL　　　当前用户的邮件存放目录
-
 　　PS1　　　基本提示符，对于root用户是#，对于普通用户是$
 
 
@@ -120,13 +111,33 @@ top -H -p pid  线程数
 
 查看linux版本  getconf LONG_BIT
 jdk安装：
-wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-i586.
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz
 
 w who whami last lastlog
 
-跳过测试： mvn clean install -Dmaven.test.skip=true  
-自动上传：mvn deploy -e -Dmaven.test.skip=true
-mvn install -Dmaven.test.skip=true
+修改ssh连接时间 vi /etc/ssh/sshd_config ClientAliveInterval  ClientAliveCountMax  
+
+/etc/passwd 用户信息
+
+set ff查看编码
+
+ln -s 创建符号连接
+ln  硬链接
+
+useradd 
+passwd修改密码
+
+Linux磁盘管理常用三个命令为df、du和fdisk。
+
+    df：列出文件系统的整体磁盘使用量
+    du：检查磁盘空间使用量
+    fdisk：用于磁盘分区
+du -k 查看目录占用磁盘空间大小
+
+df -lh 查看磁盘的使用情况以及文件系统被挂载的位置
+
+yum list installed | grep "gcc"
+
 -----------------------------------------linux----------------------------------------------------------------------------------
 
 
@@ -279,5 +290,53 @@ rabbtmqctl add_user
 rabbitmqctl list_vhost
 
 -----------------------------------------rabbitmq----------------------------------------------------------------------------------
+
+-----------------------------------------maven----------------------------------------------------------------------------------
+跳过测试： mvn clean install -Dmaven.test.skip=true  
+自动上传：mvn deploy -e -Dmaven.test.skip=true
+mvn install -Dmaven.test.skip=true
+-----------------------------------------maven----------------------------------------------------------------------------------
+
+-----------------------------------------mysql----------------------------------------------------------------------------------
+配置参数cp /usr/local/mysql/mysql/support-files/my-default.cnf /etc/my.cnf
+系统服务cp /usr/local/mysql/mysql/support-files/mysql.server /etc/init.d/mysql
+初始化 bin/mysqld --initialize --user=mysql --basedir=/usr/local/mysql/mysql --datadir=/usr/local/mysql/mysql/data
+
+启动 service mysql start（bin/mysqld --user=mysql &)
+
+登录mysql ： mysql -uroot -proot
+ 
+ 
+-----------------------------------------mysql----------------------------------------------------------------------------------
+
+-----------------------------------------ngnix----------------------------------------------------------------------------------
+
+/usr/local/nginx/sbin/nginx  启动
+/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf  启动，载入当前配置
+/usr/local/nginx/sbin/nginx -t 测试配置
+/usr/local/nginx/sbin/nginx -s reload   加载配置--不是重启，但可以当重启使用
+/usr/local/nginx/sbin/nginx -s stop    退出
+/usr/local/nginx/sbin/nginx -s quit  保持未结束的进程后退出
+/usr/local/nginx/sbin/nginx -s reopen 日志重新选择
+
+配置文件位置：
+/usr/local/nginx/conf/nginx.conf
+-----------------------------------------ngnix----------------------------------------------------------------------------------
+
+
+-----------------------------------------redis----------------------------------------------------------------------------------
+Redis：
+
+Redis-server /usr..../redis.conf 启动redis服务，并指定配置文件
+Redis-cli 启动redis 客户端
+Pkill redis-server 关闭redis服务
+Redis-cli shutdown 关闭redis客户端
+Netstat -tunpl|grep 6379 查看redis 默认端口号6379占用情况
+-----------------------------------------redis----------------------------------------------------------------------------------
+
+
+
+
+
 
 
