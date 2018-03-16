@@ -327,11 +327,11 @@ mvn install -Dmaven.test.skip=true
 -----------------------------------------redis----------------------------------------------------------------------------------
 Redis：
 
-Redis-server /usr..../redis.conf 启动redis服务，并指定配置文件
-Redis-cli 启动redis 客户端
-Pkill redis-server 关闭redis服务
-Redis-cli shutdown 关闭redis客户端
-Netstat -tunpl|grep 6379 查看redis 默认端口号6379占用情况
+redis-server /usr..../redis.conf 启动redis服务，并指定配置文件
+redis-cli 启动redis 客户端
+pkill redis-server 关闭redis服务
+redis-cli shutdown 关闭redis客户端
+netstat -tunpl|grep 6379 查看redis 默认端口号6379占用情况
 -----------------------------------------redis----------------------------------------------------------------------------------
 
 
