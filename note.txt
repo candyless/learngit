@@ -353,6 +353,7 @@ redis-cli shutdown 关闭redis客户端
 netstat -tunpl|grep 6379 查看redis 默认端口号6379占用情况
 
 redis外网访问：redis.conf # bind 127.0.0.1 protected-mode no
+
 -----------------------------------------redis----------------------------------------------------------------------------------
 
 
