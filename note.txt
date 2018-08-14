@@ -111,7 +111,7 @@ top -H -p pid  线程数
 
 查看linux版本  getconf LONG_BIT
 jdk安装：
-wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u171-b11/512cd62ec5174c3487ac17c61aaa89e8/jdk-8u171-linux-x64.tar.gz
 
 w who whami last lastlog lastb history
 
@@ -147,6 +147,12 @@ yum list installed | grep "gcc"
     tar –czf jpg.tar.gz *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用gzip压缩，生成一个gzip压缩过的包，命名为jpg.tar.gz  
     tar –cjf jpg.tar.bz2 *.jpg //将目录里所有jpg文件打包成jpg.tar后，并且将其用bzip2压缩，生成一个bzip2压缩过的包，命名为jpg.tar.bz2  
     tar –cZf jpg.tar.Z *.jpg   //将目录里所有jpg文件打包成jpg.tar后，并且将其用compress压缩，生成一个umcompress压缩过的包，命名为jpg.tar.Z  
+	
+/etc/sysconfig/network-scripts/ifconfig-eth0 网卡文件
+service network restart重启网卡
+
+ tcpdump -n -i eth0 port 5672  输出tcp报文段信息
+
 
 -----------------------------------------linux----------------------------------------------------------------------------------
 
@@ -302,6 +308,9 @@ rabbitmqctl list_vhost
 -----------------------------------------rabbitmq----------------------------------------------------------------------------------
 
 -----------------------------------------maven----------------------------------------------------------------------------------
+maven命令创建项目：mvn archetype:generate -DgroupId={project-packaging} -DartifactId={project-name}-DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+定制jar包入本地仓库：mvn install:install-file -Dfile=c:\kaptcha-{version}.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion={version} -Dpackaging=jar
+                   
 跳过测试： mvn clean install -Dmaven.test.skip=true  
 自动上传：mvn deploy -e -Dmaven.test.skip=true
 mvn install -Dmaven.test.skip=true
@@ -315,7 +324,7 @@ mvn install -Dmaven.test.skip=true
 启动 service mysql start（bin/mysqld --user=mysql &)
 
 登录mysql ： mysql -uroot -proot
- 
+ window重装系统后：重新安装mysql服务 mysqld --install net start mysql 
  
 -----------------------------------------mysql----------------------------------------------------------------------------------
 
@@ -337,11 +346,13 @@ mvn install -Dmaven.test.skip=true
 -----------------------------------------redis----------------------------------------------------------------------------------
 Redis：
 
-redis-server /usr..../redis.conf 启动redis服务，并指定配置文件
+redis-server /usr/local/redis/redis.conf 启动redis服务，并指定配置文件
 redis-cli 启动redis 客户端
 pkill redis-server 关闭redis服务
 redis-cli shutdown 关闭redis客户端
 netstat -tunpl|grep 6379 查看redis 默认端口号6379占用情况
+
+redis外网访问：redis.conf # bind 127.0.0.1 protected-mode no
 -----------------------------------------redis----------------------------------------------------------------------------------
 
 
