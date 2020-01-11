@@ -496,7 +496,28 @@ volume 的目录一般在 /var/lib/docker/volumes/&lt;volume-name&gt;下。
 git chekout --file 撤销工作区修改
 git reset head file 撤销暂存区修改
 git reset --hard commit_id 版本回退
+git config --global user.name email
+
+echo "# oneE" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/candyloss/oneE.git
+git push -u origin master
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/candyloss/oneE.git
+git push -u origin master
 -----------------------------------------git----------------------------------------------------------------------------------
+
+-----------------------------------------node&vue----------------------------------------------------------------------------------
+npm config set registry https://registry.npm.taobao.org   prefix cache
+npm install --global vue-cli
+npm config ls 
+npm ls -g --depth 0 
+
+-----------------------------------------node&vue----------------------------------------------------------------------------------
 
 
 
